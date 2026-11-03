@@ -113,7 +113,7 @@ export default function About() {
           </div>
 
           <Link
-            to="/"
+            to="/Shop"
             className="flex items-center gap-2 rounded-full border border-[#d9b45a]/50 px-5 py-2.5 text-xs uppercase tracking-wider text-[#d9b45a] transition hover:bg-[#d9b45a] hover:text-black"
           >
             Shop Now <ArrowUpRight size={15} />
@@ -639,7 +639,7 @@ export default function About() {
             </div>
 
             <Link
-              to="/"
+              to="/shop"
               className="text-xs uppercase tracking-[0.3em] text-white/50 transition hover:text-[#d9b45a]"
             >
               Return to Shop ↑

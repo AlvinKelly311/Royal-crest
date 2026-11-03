@@ -1,24 +1,35 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import ScrollHero from "./components/ScrollHero";
-import Shop from "./components/Shop";
-import About from "./components/About";
+import { useEffect } from "react";
+import { Outlet, useLocation } from "react-router-dom";
+import { AuthProvider } from "./context/AuthContext";
+import { CartProvider } from "./context/CartContext";
+import Navbar from "./components/Navbar";
+import AuthDrawer from "./components/AuthDrawer";
+import Footer from "./components/Footer";
 
-function Home() {
-  return (
-    <>
-      <ScrollHero />
-      <Shop />
-    </>
-  );
+// pages that should not show the shared footer (About has its own contact footer; login and payment stay focused)
+const NO_FOOTER = ["/about", "/login", "/payment"];
+
+// start every page at the top when you move between pages
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
 }
 
 export default function App() {
+  const { pathname } = useLocation();
+
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-      </Routes>
-    </BrowserRouter>
+    <AuthProvider>
+      <CartProvider>
+        <ScrollToTop />
+        <Navbar />
+        <Outlet />
+        {!NO_FOOTER.includes(pathname) && <Footer />}
+        <AuthDrawer />
+      </CartProvider>
+    </AuthProvider>
   );
 }

@@ -2,12 +2,10 @@ import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import logo from "../assets/images/logo.jpg"
 
 gsap.registerPlugin(ScrollTrigger);
 
 const FRAME_COUNT = 360; // 15s at 24fps
-const WHATSAPP_URL = "https://wa.me/233594236150"; // confirm the number is on WhatsApp
 
 // progress ranges (0 to 1) in which each headline is visible, and where the text sits
 const BEATS = [
@@ -133,26 +131,6 @@ export default function ScrollHero() {
         </div>
       )}
 
-      <header className="fixed inset-x-0 top-0 z-40 flex items-center justify-between px-5 py-4 md:px-10">
-        <img src={logo} alt="logo" className="w-8 h-8 rounded-4xl" />
-        <div className="flex items-center gap-5 font-sans tracking-wide">
-          <Link to="/about" className="text-sm text-amber-100/80 hover:text-amber-100 transition-colors">
-            About
-          </Link>
-
-          <a href="#shop" className="text-sm text-amber-100/80 hover:text-amber-100 transition-colors">
-            Shop
-          </a>
-
-          <a
-            href={WHATSAPP_URL}
-            className="rounded-full border border-amber-200/60 px-4 py-1.5 text-sm text-amber-100 transition-all hover:bg-amber-200 hover:text-black"
-          >
-            Order now
-          </a>
-        </div>
-      </header>
-
       {/* tall section: the page scrolls while the canvas stays pinned */}
       <section ref={sectionRef} className="relative h-[900vh] bg-black md:h-[1300vh]">
         <div className="sticky top-0 h-screen w-full overflow-hidden">
@@ -180,19 +158,18 @@ export default function ScrollHero() {
                   {b.sub}
                 </p>
                 {b.cta && (
-                  <a
-                    href={WHATSAPP_URL}
+                  <Link
+                    to="/shop"
                     className="pointer-events-auto mt-6 inline-block rounded-full bg-amber-200 px-7 py-3 font-sans text-sm font-semibold tracking-wide text-black transition-all duration-300 hover:bg-amber-100 hover:scale-105"
                   >
-                    Order on WhatsApp
-                  </a>
+                    Shop now
+                  </Link>
                 )}
               </div>
             </div>
           ))}
         </div>
       </section>
-
     </>
   );
 }
