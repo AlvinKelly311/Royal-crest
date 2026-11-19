@@ -8,7 +8,7 @@ import { Quote, Star } from "lucide-react";
 const TESTIMONIALS = [
   { id: 1, name: "Salamatu Karim", product: "Coconut Plus+", rating: 5, text: "Nice taste." },
   { id: 2, name: "Ray", product: "Crest Bubble Tea", rating: 5, text: "A very different taste. You need to try this 🥰." },
-  { id: 3, name: "Customer name", product: "Crest Chills", rating: 5, text: "Replace this with a real customer's own words." },
+  { id: 3, name: "Black cat", product: "Crest Chills", rating: 5, text: "So Chill and refreshing." },
 ];
 
 function Stars({ rating }) {
