@@ -32,7 +32,7 @@ export default function About() {
   };
 
   return (
-    <main className="overflow-hidden bg-[#0b0b0a] text-[#f5f0e6]">
+    <main className="w-full min-w-0 overflow-x-clip bg-[#0b0b0a] text-[#f5f0e6]">
 
       <style>{`
         @keyframes crestFloat {
@@ -90,42 +90,41 @@ export default function About() {
 
       {/* NAVIGATION */}
 
-      <nav className="fixed top-0 z-50 w-full border-b border-white/10 bg-[#0b0b0a]/85 backdrop-blur-xl">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5">
+    <div className="mx-auto flex w-full max-w-7xl min-w-0 items-center justify-between gap-3 px-4 py-4 sm:px-6 sm:py-5">
+      <Link
+        to="/"
+        className="shrink-0 font-serif text-lg tracking-wide text-[#d9b45a] sm:text-xl"
+      >
+        ROYAL CREST
+      </Link>
 
-          <Link to="/" className="font-serif text-xl tracking-wide text-[#d9b45a]">
-            ROYAL CREST
-          </Link>
+      <div className="hidden items-center gap-10 text-xs uppercase tracking-[0.2em] text-white/60 md:flex">
+        <a href="#story" className="transition hover:text-[#d9b45a]">
+          Our Story
+        </a>
+        <a href="#categories" className="transition hover:text-[#d9b45a]">
+          Collections
+        </a>
+        <a href="#experience" className="transition hover:text-[#d9b45a]">
+          Experience
+        </a>
+        <a href="#contact" className="transition hover:text-[#d9b45a]">
+          Contact
+        </a>
+      </div>
 
-          <div className="hidden items-center gap-10 text-xs uppercase tracking-[0.2em] text-white/60 md:flex">
-            <a href="#story" className="transition hover:text-[#d9b45a]">
-              Our Story
-            </a>
-            <a href="#categories" className="transition hover:text-[#d9b45a]">
-              Collections
-            </a>
-            <a href="#experience" className="transition hover:text-[#d9b45a]">
-              Experience
-            </a>
-            <a href="#contact" className="transition hover:text-[#d9b45a]">
-              Contact
-            </a>
-          </div>
-
-          <Link
-            to="/Shop"
-            className="flex items-center gap-2 rounded-full border border-[#d9b45a]/50 px-5 py-2.5 text-xs uppercase tracking-wider text-[#d9b45a] transition hover:bg-[#d9b45a] hover:text-black"
-          >
-            Shop Now <ArrowUpRight size={15} />
-          </Link>
-
-        </div>
-      </nav>
+      <Link
+        to="/Shop"
+        className="flex shrink-0 items-center gap-1.5 rounded-full border border-[#d9b45a]/50 px-3 py-2.5 text-[10px] uppercase tracking-wider text-[#d9b45a] transition hover:bg-[#d9b45a] hover:text-black sm:gap-2 sm:px-5 sm:text-xs"
+      >
+        Shop Now <ArrowUpRight size={15} />
+      </Link>
+  </div>
 
 
       {/* HERO SECTION */}
 
-      <section className="relative flex min-h-screen items-center justify-center overflow-hidden px-6 pt-24 text-center">
+      <section className="relative flex min-h-screen w-full min-w-0 items-center justify-center overflow-hidden px-4 pt-24 text-center sm:px-6">
 
         {/* Background decoration */}
 
@@ -141,12 +140,14 @@ export default function About() {
 
         <div className="relative z-10 mx-auto max-w-5xl">
 
-          <div className="crest-reveal mb-10 flex items-center justify-center gap-4">
-            <span className="h-px w-12 bg-[#d9b45a]/60" />
-            <span className="text-[10px] uppercase tracking-[0.5em] text-[#d9b45a]">
+          <div className="crest-reveal mb-8 flex flex-wrap items-center justify-center gap-2 sm:mb-10 sm:gap-4">
+            <span className="h-px w-6 bg-[#d9b45a]/60 sm:w-12" />
+
+            <span className="text-[9px] uppercase tracking-[0.25em] text-[#d9b45a] sm:text-[10px] sm:tracking-[0.5em]">
               A Taste of Distinction
             </span>
-            <span className="h-px w-12 bg-[#d9b45a]/60" />
+
+            <span className="h-px w-6 bg-[#d9b45a]/60 sm:w-12" />
           </div>
 
           {/* Logo */}
@@ -165,7 +166,8 @@ export default function About() {
 
           </div>
 
-          <h1 className="crest-reveal font-serif text-5xl leading-tight tracking-wide md:text-7xl"
+          <h1
+            className="crest-reveal break-words font-serif text-[clamp(2.5rem,10vw,5rem)] leading-[1.1] tracking-wide md:text-7xl"
             style={{ animationDelay: "0.2s" }}
           >
             The Art of
@@ -198,11 +200,14 @@ export default function About() {
 
       {/* OUR STORY */}
 
-      <section id="story" className="relative bg-[#f5f0e6] px-6 py-28 text-[#171612] md:py-40">
+      <section
+        id="story"
+        className="relative w-full min-w-0 overflow-hidden bg-[#f5f0e6] px-4 py-20 text-[#171612] sm:px-6 sm:py-28 md:py-40"
+      >
 
-        <div className="mx-auto grid max-w-7xl items-center gap-16 md:grid-cols-2">
+        <div className="mx-auto grid w-full max-w-7xl min-w-0 items-center gap-12 md:grid-cols-2 md:gap-16">
 
-          <div>
+          <div className="min-w-0">
             <div className="mb-8 flex items-center gap-4">
               <Sparkles className="text-[#b18a37]" size={19} />
               <span className="text-xs uppercase tracking-[0.4em] text-[#9a7837]">
@@ -210,7 +215,7 @@ export default function About() {
               </span>
             </div>
 
-            <h2 className="font-serif text-5xl leading-tight md:text-7xl">
+            <h2 className="break-words font-serif text-[clamp(2.5rem,8vw,4.5rem)] leading-[1.12] md:text-7xl">
               More than
               <span className="block italic text-[#b18a37]">
                 a taste.
@@ -244,18 +249,18 @@ export default function About() {
 
           {/* Decorative brand panel */}
 
-          <div className="relative mx-auto w-full max-w-md">
+          <div className="relative mx-auto mt-4 w-full min-w-0 max-w-md">
 
-            <div className="absolute -right-4 -top-4 h-full w-full border border-[#b18a37]/40" />
+            {/* <div className="absolute -right-2 -top-2 h-full w-full border border-[#b18a37]/40 sm:-right-4 sm:-top-4" /> */}
 
-            <div className="relative flex min-h-[450px] flex-col justify-between overflow-hidden bg-[#15140f] p-10 text-[#f5f0e6]">
+            <div className="relative flex min-h-[450px] min-w-0 flex-col justify-between overflow-hidden bg-[#15140f] p-6 text-[#f5f0e6] sm:min-h-[450px] sm:p-10">
 
               <span className="text-xs uppercase tracking-[0.4em] text-[#d9b45a]">
                 ROYAL CREST
               </span>
 
               <div>
-                <p className="font-serif text-6xl italic leading-tight">
+                <p className="break-words font-serif text-[clamp(2.5rem,9vw,3.75rem)] italic leading-[1.15]">
                   Simply
                   <br />
                   Exceptional.
@@ -283,7 +288,7 @@ export default function About() {
 
       {/* CATEGORIES */}
 
-      <section id="categories" className="px-6 py-28 md:py-36">
+      <section id="categories" className="w-full min-w-0 px-4 py-20 sm:px-6 sm:py-28 md:py-36">
 
         <div className="mx-auto max-w-7xl">
 
@@ -370,7 +375,7 @@ export default function About() {
 
       {/* ORDERING EXPERIENCE */}
 
-      <section id="experience" className="bg-[#f5f0e6] px-6 py-28 text-[#171612] md:py-36">
+     <section id="experience" className="w-full min-w-0 overflow-hidden bg-[#f5f0e6] px-4 py-20 text-[#171612] sm:px-6 sm:py-28 md:py-36">
 
         <div className="mx-auto max-w-7xl">
 
@@ -450,7 +455,7 @@ export default function About() {
 
       {/* NEWSLETTER */}
 
-      <section className="relative overflow-hidden bg-[#d9b45a] px-6 py-28 text-center text-[#15140f] md:py-36">
+     <section className="relative w-full min-w-0 overflow-hidden bg-[#d9b45a] px-4 py-20 text-center text-[#15140f] sm:px-6 sm:py-28 md:py-36">
 
         <div className="absolute -left-32 -top-32 h-96 w-96 rounded-full border border-black/10" />
         <div className="absolute -bottom-40 -right-20 h-96 w-96 rounded-full border border-black/10" />
@@ -516,8 +521,7 @@ export default function About() {
 
       {/* FOOTER / CONTACT */}
 
-      <footer id="contact" className="px-6 pb-10 pt-24">
-
+      <footer id="contact" className="w-full min-w-0 overflow-hidden px-4 pb-10 pt-20 sm:px-6 sm:pt-24">
         <div className="mx-auto max-w-7xl">
 
           <div className="grid gap-16 border-b border-white/10 pb-20 md:grid-cols-2">
@@ -528,7 +532,7 @@ export default function About() {
                 Let's Connect
               </p>
 
-              <h2 className="mt-6 max-w-lg font-serif text-5xl leading-tight md:text-6xl">
+              <h2 className="mt-6 max-w-lg break-words font-serif text-[clamp(2.5rem,8vw,3.75rem)] leading-tight md:text-6xl">
                 Every great experience starts with a
                 <span className="italic text-[#d9b45a]"> hello.</span>
               </h2>
